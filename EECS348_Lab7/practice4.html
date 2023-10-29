@@ -1,0 +1,38 @@
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>Practice Four: PHP Multiplication Table</title>
+</head>
+<body style="text-align: center; background-color: aquamarine;">
+    <h1>Practice Four: PHP Multiplication Table</h1>
+    <form method="post">
+        Enter a number: <input type="number" name="number" min="1" required placeholder = "Must be >= 1">
+        <input type="submit" value="Generate M - Table">
+    </form>
+    <?php //the seperate php file is also available, but for better user visibility and interaction, the php is in the html file
+    if($_POST) { //reference of this code is from W3schools
+        $num = $_POST["number"];
+        echo "<h2 style='text-align: center; text-decoration: underline;'>Multiplication Table for 1 to $num:</h2>";
+        echo "<table border='2' style='margin: 0 auto;'>";
+
+        echo "<tr><th></th>";
+        for ($col = 1; $col <= $num; $col++) {
+            echo "<th>$col</th>";
+        }
+        echo "</tr>";
+
+        for ($row = 1; $row <= $num; $row++) {
+            echo "<tr><th>$row</th>";
+            for ($col = 1; $col <= $num; $col++) {
+                echo "<td>" . ($row * $col) . "</td>";
+            }
+            echo "</tr>";
+        }
+
+        echo "</table>";
+}
+?>
+    <a href="index.html"><p style="text-align: center;">Return to Home Page</p></a>
+</body>
+
+</html>
